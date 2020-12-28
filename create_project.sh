@@ -11,3 +11,5 @@ else
         cd $HOME/usbdrv/$PRJ_NAME
         git init --bare && echo "Use this command to add origin $COMMAND"
 fi
+
+# https://www.dropbox.com/s/u77ydkhbjp4hdkm/create_project.sh?dl=0
