@@ -1,0 +1,1 @@
+This file allows any github account to recursively go through any directory in search of .git folders, fetches, and then pulls information.
