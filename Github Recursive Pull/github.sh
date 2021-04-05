@@ -12,19 +12,20 @@ for REPO in `ls "$REPOSITORIES"`
 do
   if [ -d "$REPOSITORIES/$REPO" ]
   then
-    echo "Updating $REPOSITORIES/$REPO at `date`"
+    printf "Updating $REPOSITORIES/$REPO at `date`"
     if [ -d "$REPOSITORIES/$REPO/.git" ]
     then
       cd "$REPOSITORIES/$REPO"
+      printf "\nGetting repository status..."
       git status
-      echo "Fetching"
+      printf "\nFetching"
       git fetch
-      echo "Pulling"
+      printf "\nPulling\n"
       git pull
     else
-      echo "Skipping because it doesn't look like it has a .git folder."
+      printf "\nSkipping because it doesn't look like it has a .git folder.\n"
     fi
-    echo "Done at `date`"
+    printf "\nDone at `date`"
     echo
   fi
 done
