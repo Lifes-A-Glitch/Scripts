@@ -2,7 +2,8 @@
 
 #Today function that spits out todays date
 today() {
-    echo This is a $(date +"%A %d in %B of %Y (%r)") return
+    echo "Date: $(date +"%A %d in %B of %Y (%r)")"
+    return
 }
 
 sync() {
@@ -13,11 +14,10 @@ sync() {
     cd "C:\Users\balex\Desktop\Code"
     REPOSITORIES=$(pwd)
     IFS=$'\n'
-
     for REPO in $(ls "$REPOSITORIES"); do
         if [ -d "$REPOSITORIES/$REPO" ]; then
-            echo "-----------------------------------------------"
-            printf "\nUpdating $REPOSITORIES/$REPO at $(date)\n"
+            echo "-------------------------------------------------------------"
+            printf "\nUpdating $REPOSITORIES/$REPO at $(date +"%b-%d-%Y %r")\n"
             if [ -d "$REPOSITORIES/$REPO/.git" ]; then
                 cd "$REPOSITORIES/$REPO"
                 printf "\nGetting repository status...\n"
@@ -25,14 +25,14 @@ sync() {
                 printf "\nFetching"
                 git fetch
                 printf "\nPulling\n"
-                git pull
+                git pull --verbose
             else
                 printf "\nSkipping because it doesn't look like it has a .git folder.\n"
             fi
-            printf "\nDone at $(date)\n"
-            echo "-----------------------------------------------"
-
+            printf "\nDone at $(date +"%b-%d-%Y %r")\n"
+            echo "-------------------------------------------------------------"
         fi
+        cd "C:\Users\balex\Desktop\Code"
     done
 }
 
@@ -46,8 +46,13 @@ sync() {
 # --show-control-chars: help showing Korean or accented characters
 alias ls='ls -F --color=auto --show-control-chars'
 alias ll='ls -l'
-alias on='cd "C:\Users\balex\Desktop\Code\Communication-Networks\Boxes\Box-instances" && vagrant up'
-alias off='cd "C:\Users\balex\Desktop\Code\Communication-Networks\Boxes\Box-instances" && vagrant halt'
+alias class='cd "C:\Users\balex\Desktop\Code"'
+alias stats='git status --verbose'
+
+# For computers running Vagrant and have the Communication Networks Vagrant Box
+# alias on='cd "C:\Users\balex\Desktop\Code\Communication-Networks\Boxes\Box-instances" && vagrant up'
+# alias off='cd "C:\Users\balex\Desktop\Code\Communication-Networks\Boxes\Box-instances" && vagrant halt'
+
 
 case "$TERM" in
 xterm*)
@@ -63,4 +68,3 @@ xterm*)
     ;;
 esac
 ##########################################################################
-
