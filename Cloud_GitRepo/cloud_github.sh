@@ -6,7 +6,7 @@
 #REPOSITORIES="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 sync() 
 {
-  cd "/root/GithubRepo/repos"
+  cd "/home/pi/USB/GithubRepo/repos"
   REPOSITORIES=$(pwd)
   IFS=$'\n'
   for REPO in $(ls "$REPOSITORIES"); do
@@ -27,10 +27,8 @@ sync()
       printf "\nDone at $(date +"%b-%d-%Y_%r")\n"
       echo "-------------------------------------------------------------"
     fi
-    cd "/root/GithubRepo/repos"
+    cd "/home/pi/USB/GithubRepo/repos"
   done
 }
 
-
-
-sync >> /root/GithubRepo/logs/"$(date +"%b-%d-%Y_%H:%M:%S")"_.txt
+sync >> /home/pi/USB/GithubRepo/logs/"$(date +"%b-%d-%Y_%H:%M:%S")".txt
