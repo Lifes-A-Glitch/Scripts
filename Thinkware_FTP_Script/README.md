@@ -1,0 +1,1 @@
+The script itself is not ready and will need to be tested heavily with the U1000 camera. On the Github page, people reported that the U1000 does not support FTP. So for now the script is temporary.
