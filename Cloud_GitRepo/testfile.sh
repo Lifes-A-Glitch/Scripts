@@ -21,7 +21,7 @@ sync() {
 
 		for line in $(cat active_repo_list.txt); do
 		{
-			if [ -d "$REPOSITORIES/$REPO" ]; then
+			if [ -d "$line" ]; then
 				echo "-------------------------------------------------------------"
 				printf "\nUpdating $REPOSITORIES/$line at $(date +"%b-%d-%Y %r")\n"
 				if [ -d "$REPOSITORIES/$line/.git" ]; then
