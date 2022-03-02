@@ -1,5 +1,5 @@
 #!/bin/bash
-
+as'pdlfkja'psdkljfa;lskdjf;laksjdf;laskj
 ################
 # Uncomment if you want the script to always use the scripts
 # directory as the folder to look through
