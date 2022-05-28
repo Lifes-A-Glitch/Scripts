@@ -49,11 +49,6 @@ alias ll='ls -l'
 alias class='cd "C:\Users\balex\Desktop\Code"'
 alias stats='git status --verbose'
 
-# For computers running Vagrant and have the Communication Networks Vagrant Box
-# alias on='cd "C:\Users\balex\Desktop\Code\Communication-Networks\Boxes\Box-instances" && vagrant up'
-# alias off='cd "C:\Users\balex\Desktop\Code\Communication-Networks\Boxes\Box-instances" && vagrant halt'
-
-
 case "$TERM" in
 xterm*)
     # The following programs are known to require a Win32 Console
