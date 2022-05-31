@@ -6,34 +6,39 @@ today() {
     return
 }
 
-sync() {
-    ################
-    # Uncomment if you want the script to always use the scripts
-    # directory as the folder to look through
-    #REPOSITORIES="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
-    cd "C:\Users\balex\Desktop\Code"
-    REPOSITORIES=$(pwd)
-    IFS=$'\n'
-    for REPO in $(ls "$REPOSITORIES"); do
-        if [ -d "$REPOSITORIES/$REPO" ]; then
-            echo "-------------------------------------------------------------"
-            printf "\nUpdating $REPOSITORIES/$REPO at $(date +"%b-%d-%Y %r")\n"
-            if [ -d "$REPOSITORIES/$REPO/.git" ]; then
-                cd "$REPOSITORIES/$REPO"
-                printf "\nGetting repository status...\n"
-                git status
-                printf "\nFetching"
-                git fetch
-                printf "\nPulling\n"
-                git pull --verbose
-            else
-                printf "\nSkipping because it doesn't look like it has a .git folder.\n"
-            fi
-            printf "\nDone at $(date +"%b-%d-%Y %r")\n"
-            echo "-------------------------------------------------------------"
-        fi
-        cd "C:\Users\balex\Desktop\Code"
-    done
+# sync() {
+#     ################
+#     # Uncomment if you want the script to always use the scripts
+#     # directory as the folder to look through
+#     #REPOSITORIES="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+#     cd "E:\Code"
+#     REPOSITORIES=$(pwd)
+#     IFS=$'\n'
+#     for REPO in $(ls "$REPOSITORIES"); do
+#         if [ -d "$REPOSITORIES/$REPO" ]; then
+#             echo "-------------------------------------------------------------"
+#             printf "\nUpdating $REPOSITORIES/$REPO at $(date +"%b-%d-%Y %r")\n"
+#             if [ -d "$REPOSITORIES/$REPO/.git" ]; then
+#                 cd "$REPOSITORIES/$REPO"
+#                 printf "\nGetting repository status...\n"
+#                 git status
+#                 printf "\nFetching"
+#                 git fetch
+#                 printf "\nPulling\n"
+#                 git pull --verbose
+#             else
+#                 printf "\nSkipping because it doesn't look like it has a .git folder.\n"
+#             fi
+#             printf "\nDone at $(date +"%b-%d-%Y %r")\n"
+#             echo "-------------------------------------------------------------"
+#         fi
+#         cd "E:\Code"
+#     done
+# }
+
+sync()
+{
+    cd "E:\Code" && ./github.sh
 }
 
 ###########################################################################
@@ -44,10 +49,10 @@ sync() {
 # creates his/her own .bashrc/.bash_profile
 
 # --show-control-chars: help showing Korean or accented characters
-alias ls='ls -F --color=auto --show-control-chars'
+alias ls='ls -alhrt --color=auto --show-control-chars'
 alias ll='ls -l'
-alias class='cd "C:\Users\balex\Desktop\Code"'
-alias stats='git status --verbose'
+alias class='cd "E:\Code"'
+alias gs='git status --verbose'
 
 case "$TERM" in
 xterm*)
